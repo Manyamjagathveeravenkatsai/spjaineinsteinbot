@@ -264,6 +264,107 @@ footer a {
         max-width: 350px;
     }
 }
+    
+/* GENERAL PAGE FIXES */
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+section {
+    width: 100%;
+    padding: 65px 5%;
+}
+
+section p {
+    width: 100%;
+    max-width: 950px;
+    margin: 15px auto;
+    overflow-wrap: break-word;
+}
+
+/* NAVIGATION FIX */
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* CHATBOT POPUP */
+
+#chatPopup {
+    z-index: 9998 !important;
+    right: 20px;
+    bottom: 90px;
+    max-width: 240px;
+}
+
+/* SALESFORCE CHAT WINDOW */
+
+.embeddedMessagingFrame {
+    position: fixed !important;
+    right: 20px !important;
+    bottom: 20px !important;
+    top: auto !important;
+    z-index: 99999 !important;
+    max-width: calc(100vw - 40px) !important;
+}
+
+/* SALESFORCE CHAT BUTTON */
+
+.embeddedMessagingConversationButton {
+    z-index: 99999 !important;
+}
+
+/* MOBILE RESPONSIVENESS */
+
+@media screen and (max-width: 768px) {
+
+    header {
+        min-height: 400px;
+        padding: 100px 15px;
+    }
+
+    header h1 {
+        font-size: 32px;
+    }
+
+    header p {
+        font-size: 17px;
+    }
+
+    nav {
+        padding: 10px 5px;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 7px;
+        font-size: 12px;
+    }
+
+    section {
+        padding: 40px 18px;
+    }
+
+    .programme-card {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .embeddedMessagingFrame {
+        right: 10px !important;
+        bottom: 10px !important;
+        max-width: calc(100vw - 20px) !important;
+    }
+}
+
 </style>
 </head>
 
