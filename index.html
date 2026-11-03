@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,6 +19,8 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     color: #292929;
     background: #fff;
+    /* Prevents horizontal scroll without breaking fixed/sticky widgets */
+    overflow-x: clip;
 }
 
 :root {
@@ -77,7 +78,7 @@ nav {
     text-align: center;
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 100; /* kept low so it never sits above the chat widget */
 }
 
 nav a {
@@ -95,7 +96,7 @@ nav a:hover {
 /* GENERAL SECTIONS */
 
 section {
-    padding: 65px 8%;
+    padding: 65px 5%;
     text-align: center;
 }
 
@@ -109,6 +110,7 @@ section p {
     line-height: 1.8;
     max-width: 950px;
     margin: 15px auto;
+    overflow-wrap: break-word;
 }
 
 /* ABOUT */
@@ -206,7 +208,7 @@ footer a {
     text-decoration: none;
 }
 
-/* CHAT POPUP */
+/* CUSTOM CHAT POPUP BUBBLE (your own element, not the Salesforce widget) */
 
 #chatPopup {
     position: fixed;
@@ -220,7 +222,7 @@ footer a {
     font-size: 14px;
     max-width: 240px;
     display: none;
-    z-index: 9999;
+    z-index: 9998;
     cursor: pointer;
     line-height: 1.5;
 }
@@ -239,93 +241,15 @@ footer a {
     color: var(--purple);
 }
 
+/* Let the Salesforce container sit above the page.
+   Do NOT style .embeddedMessagingFrame or the conversation button. */
+#embedded-messaging {
+    z-index: 2147483000;
+}
+
 /* RESPONSIVE */
 
-@media(max-width:768px) {
-    header {
-        padding: 110px 15px;
-    }
-
-    header h1 {
-        font-size: 34px;
-    }
-
-    nav a {
-        display: inline-block;
-        margin: 8px;
-    }
-
-    section {
-        padding: 45px 5%;
-    }
-
-    .programme-card {
-        width: 100%;
-        max-width: 350px;
-    }
-}
-    
-/* GENERAL PAGE FIXES */
-
-* {
-    box-sizing: border-box;
-}
-
-html, body {
-    width: 100%;
-    overflow-x: hidden;
-}
-
-section {
-    width: 100%;
-    padding: 65px 5%;
-}
-
-section p {
-    width: 100%;
-    max-width: 950px;
-    margin: 15px auto;
-    overflow-wrap: break-word;
-}
-
-/* NAVIGATION FIX */
-
-nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-/* CHATBOT POPUP */
-
-#chatPopup {
-    z-index: 9998 !important;
-    right: 20px;
-    bottom: 90px;
-    max-width: 240px;
-}
-
-/* SALESFORCE CHAT WINDOW */
-
-.embeddedMessagingFrame {
-    position: fixed !important;
-    right: 20px !important;
-    bottom: 20px !important;
-    top: auto !important;
-    z-index: 99999 !important;
-    max-width: calc(100vw - 40px) !important;
-}
-
-/* SALESFORCE CHAT BUTTON */
-
-.embeddedMessagingConversationButton {
-    z-index: 99999 !important;
-}
-
-/* MOBILE RESPONSIVENESS */
-
-@media screen and (max-width: 768px) {
-
+@media (max-width: 768px) {
     header {
         min-height: 400px;
         padding: 100px 15px;
@@ -357,14 +281,7 @@ nav {
         width: 100%;
         max-width: 350px;
     }
-
-    .embeddedMessagingFrame {
-        right: 10px !important;
-        bottom: 10px !important;
-        max-width: calc(100vw - 20px) !important;
-    }
 }
-
 </style>
 </head>
 
@@ -375,7 +292,7 @@ nav {
 <header>
     <h1>SPJIMR</h1>
     <p>
-        S. P. Jain Institute of Management & Research
+        S. P. Jain Institute of Management &amp; Research
     </p>
     <p>
         Advancing Wise Innovation. Developing Value-Based Leaders.
@@ -401,7 +318,7 @@ nav {
     <h2>About SPJIMR</h2>
 
     <p>
-        Welcome to S. P. Jain Institute of Management & Research,
+        Welcome to S. P. Jain Institute of Management &amp; Research,
         a leading management institution located in Mumbai, India.
         SPJIMR focuses on academic excellence, industry engagement,
         social sensitivity and value-based growth.
@@ -646,7 +563,7 @@ nav {
     <h3>SPJIMR</h3>
 
     <p>
-        S. P. Jain Institute of Management & Research
+        S. P. Jain Institute of Management &amp; Research
     </p>
 
     <p>
@@ -666,7 +583,7 @@ nav {
 
 </footer>
 
-<!-- ZESTY CHATBOT POPUP -->
+<!-- CHATBOT POPUP BUBBLE -->
 
 <div id="chatPopup" onclick="openChat()">
     <strong>Hi, I'm Zesty 👋</strong><br>
@@ -683,18 +600,16 @@ function initEmbeddedMessaging() {
         embeddedservice_bootstrap.settings.language = 'en_US';
 
         embeddedservice_bootstrap.init(
-        '00DFf000003FL7F',
-        'SPJIMR_Web_Support',
-        'https://platform-energy-10--cldscodev.sandbox.my.site.com/ESWSPJIMRWebSupport1784108290202',
-        {
-         scrt2URL: 'https://platform-energy-10--cldscodev.sandbox.my.salesforce-scrt.com'
-        }
-       );
+            '00DFf000003FL7F',
+            'SPJIMR_Web_Support',
+            'https://platform-energy-10--cldscodev.sandbox.my.site.com/ESWSPJIMRWebSupport1784108290202',
+            {
+                scrt2URL: 'https://platform-energy-10--cldscodev.sandbox.my.salesforce-scrt.com'
+            }
+        );
 
     } catch (err) {
-        console.error(
-            'Error loading Embedded Messaging:', err
-        );
+        console.error('Error loading Embedded Messaging:', err);
     }
 }
 
@@ -706,9 +621,7 @@ function handleChatPopup() {
 
     const observer = new MutationObserver(() => {
 
-        const btn = document.querySelector(
-            '.embeddedMessagingConversationButton'
-        );
+        const btn = document.querySelector('.embeddedMessagingConversationButton');
 
         if (btn && !popup.dataset.init) {
 
@@ -754,9 +667,7 @@ function handleChatPopup() {
 
 function openChat() {
 
-    const btn = document.querySelector(
-        '.embeddedMessagingConversationButton'
-    );
+    const btn = document.querySelector('.embeddedMessagingConversationButton');
 
     if (btn) {
         btn.click();
@@ -765,14 +676,17 @@ function openChat() {
 
 }
 
+/* Start watching for the chat button (this was defined but never called before) */
+handleChatPopup();
+
 </script>
 
 <!-- LOAD SALESFORCE SCRIPT -->
 
 <script
- type='text/javascript'
- src='https://platform-energy-10--cldscodev.sandbox.my.site.com/ESWSPJIMRWebSupport1784108290202/assets/js/bootstrap.min.js'
- onload='initEmbeddedMessaging()'>
+ type="text/javascript"
+ src="https://platform-energy-10--cldscodev.sandbox.my.site.com/ESWSPJIMRWebSupport1784108290202/assets/js/bootstrap.min.js"
+ onload="initEmbeddedMessaging()">
 </script>
 
 </body>
