@@ -1,0 +1,678 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SPJIMR | Management Education</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #292929;
+    background: #fff;
+}
+
+:root {
+    --purple: #54246b;
+    --dark-purple: #321340;
+    --gold: #d5a84b;
+    --light: #f6f3f8;
+}
+
+/* HEADER */
+
+header {
+    background:
+        linear-gradient(rgba(35,15,45,.68), rgba(35,15,45,.72)),
+        url('https://images.unsplash.com/photo-1562774053-701939374585')
+        center/cover no-repeat;
+    min-height: 520px;
+    color: white;
+    text-align: center;
+    padding: 145px 20px 110px;
+}
+
+header h1 {
+    font-size: 48px;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+header p {
+    font-size: 21px;
+    line-height: 1.6;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--gold);
+    color: #24152b;
+    padding: 14px 28px;
+    margin-top: 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: .3s;
+}
+
+.btn:hover {
+    background: white;
+}
+
+/* NAVIGATION */
+
+nav {
+    background: var(--dark-purple);
+    padding: 17px 10px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav a {
+    color: white;
+    margin: 0 16px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: var(--gold);
+}
+
+/* GENERAL SECTIONS */
+
+section {
+    padding: 65px 8%;
+    text-align: center;
+}
+
+section h2 {
+    color: var(--purple);
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+section p {
+    line-height: 1.8;
+    max-width: 950px;
+    margin: 15px auto;
+}
+
+/* ABOUT */
+
+.about {
+    background: var(--light);
+}
+
+/* PROGRAMMES */
+
+.programmes {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 22px;
+    margin-top: 35px;
+}
+
+.programme-card {
+    border: 1px solid #e2dbe7;
+    border-radius: 8px;
+    padding: 25px;
+    width: 260px;
+    background: white;
+    box-shadow: 0 3px 12px rgba(0,0,0,.06);
+    transition: .3s;
+}
+
+.programme-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 7px 18px rgba(0,0,0,.12);
+}
+
+.programme-card h3 {
+    color: var(--purple);
+}
+
+.programme-card a {
+    color: var(--purple);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* CAMPUS */
+
+.campus {
+    background: var(--light);
+}
+
+.campus img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    border-radius: 7px;
+}
+
+/* VALUES */
+
+.values {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.value-card {
+    background: var(--purple);
+    color: white;
+    width: 220px;
+    padding: 25px;
+    border-radius: 8px;
+}
+
+.value-card h3 {
+    color: var(--gold);
+}
+
+/* CONTACT */
+
+.contact {
+    background: var(--light);
+}
+
+/* FOOTER */
+
+footer {
+    background: var(--dark-purple);
+    color: white;
+    padding: 30px 15px;
+    text-align: center;
+}
+
+footer a {
+    color: var(--gold);
+    text-decoration: none;
+}
+
+/* CHAT POPUP */
+
+#chatPopup {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    background: white;
+    color: #292929;
+    padding: 14px 18px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,.2);
+    font-size: 14px;
+    max-width: 240px;
+    display: none;
+    z-index: 9999;
+    cursor: pointer;
+    line-height: 1.5;
+}
+
+#chatPopup::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    right: 20px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: white transparent transparent transparent;
+}
+
+#chatPopup strong {
+    color: var(--purple);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px) {
+    header {
+        padding: 110px 15px;
+    }
+
+    header h1 {
+        font-size: 34px;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 8px;
+    }
+
+    section {
+        padding: 45px 5%;
+    }
+
+    .programme-card {
+        width: 100%;
+        max-width: 350px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO SECTION -->
+
+<header>
+    <h1>SPJIMR</h1>
+    <p>
+        S. P. Jain Institute of Management & Research
+    </p>
+    <p>
+        Advancing Wise Innovation. Developing Value-Based Leaders.
+    </p>
+    <a href="https://www.spjimr.org/explore-programmes"
+       class="btn">Explore Programmes</a>
+</header>
+
+<!-- NAVIGATION -->
+
+<nav>
+    <a href="#about">About Us</a>
+    <a href="#programmes">Programmes</a>
+    <a href="#campus">Campus</a>
+    <a href="#values">Why SPJIMR</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<!-- ABOUT SECTION -->
+
+<section id="about" class="about">
+
+    <h2>About SPJIMR</h2>
+
+    <p>
+        Welcome to S. P. Jain Institute of Management & Research,
+        a leading management institution located in Mumbai, India.
+        SPJIMR focuses on academic excellence, industry engagement,
+        social sensitivity and value-based growth.
+    </p>
+
+    <p>
+        Our purpose is to develop responsible leaders who create
+        meaningful impact in business and society through
+        innovative learning, research and real-world experiences.
+    </p>
+
+    <a href="https://www.spjimr.org/" class="btn">
+        Discover SPJIMR
+    </a>
+
+</section>
+
+<!-- PROGRAMMES SECTION -->
+
+<section id="programmes">
+
+    <h2>Our Academic Programmes</h2>
+
+    <p>
+        Discover programmes designed to prepare future leaders
+        and transform management careers.
+    </p>
+
+    <div class="programmes">
+
+        <div class="programme-card">
+            <h3>PGDM</h3>
+            <p>
+                Post Graduate Diploma in Management.
+                A full-time programme with specialisations
+                in key management disciplines.
+            </p>
+            <a href="https://www.spjimr.org/pgdm-admissions/">
+                Learn More →
+            </a>
+        </div>
+
+        <div class="programme-card">
+            <h3>PGDM (BM)</h3>
+            <p>
+                Post Graduate Diploma in Management –
+                Business Management for developing
+                future business leaders.
+            </p>
+            <a href="https://www.spjimr.org/explore-programmes">
+                Learn More →
+            </a>
+        </div>
+
+        <div class="programme-card">
+            <h3>PGPM</h3>
+            <p>
+                Post Graduate Programme in Management
+                for experienced professionals.
+            </p>
+            <a href="https://www.spjimr.org/explore-programmes">
+                Learn More →
+            </a>
+        </div>
+
+        <div class="programme-card">
+            <h3>Executive Education</h3>
+            <p>
+                Management and leadership development
+                programmes for working professionals.
+            </p>
+            <a href="https://www.spjimr.org/explore-programmes">
+                Learn More →
+            </a>
+        </div>
+
+        <div class="programme-card">
+            <h3>Global Management Programme</h3>
+            <p>
+                Develop a global business perspective
+                through international learning opportunities.
+            </p>
+            <a href="https://www.spjimr.org/explore-programmes">
+                Learn More →
+            </a>
+        </div>
+
+        <div class="programme-card">
+            <h3>Doctoral Programme</h3>
+            <p>
+                Build research capabilities and contribute
+                to the future of management knowledge.
+            </p>
+            <a href="https://www.spjimr.org/explore-programmes">
+                Learn More →
+            </a>
+        </div>
+
+    </div>
+
+    <a href="https://www.spjimr.org/explore-programmes"
+       class="btn">View All Programmes</a>
+
+</section>
+
+<!-- CAMPUS SECTION -->
+
+<section id="campus" class="campus">
+
+    <h2>Experience the SPJIMR Campus</h2>
+
+    <p>
+        Located in Mumbai, SPJIMR provides an engaging
+        environment for academic learning, collaboration,
+        leadership development and student activities.
+    </p>
+
+    <div class="programmes">
+
+        <div class="programme-card">
+            <img
+            src="https://images.unsplash.com/photo-1562774053-701939374585"
+            alt="Academic campus">
+            <h3>Modern Learning Spaces</h3>
+            <p>
+                Learning environments designed for
+                collaboration and academic excellence.
+            </p>
+        </div>
+
+        <div class="programme-card">
+            <img
+            src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1"
+            alt="Student campus life">
+            <h3>Student Life</h3>
+            <p>
+                Experience student communities,
+                activities and leadership opportunities.
+            </p>
+        </div>
+
+        <div class="programme-card">
+            <img
+            src="https://images.unsplash.com/photo-1521737711867-e3b97375f902"
+            alt="Students collaborating">
+            <h3>Industry Connections</h3>
+            <p>
+                Connect classroom learning with
+                professional and industry experiences.
+            </p>
+        </div>
+
+    </div>
+
+    <a href="https://www.spjimr.org/about-us/mumbai-campus/"
+       class="btn">Explore Our Campus</a>
+
+</section>
+
+<!-- WHY SPJIMR -->
+
+<section id="values">
+
+    <h2>Why Choose SPJIMR?</h2>
+
+    <p>
+        An educational experience that combines
+        management excellence with social responsibility.
+    </p>
+
+    <div class="values">
+
+        <div class="value-card">
+            <h3>Academic Excellence</h3>
+            <p>High-quality management education.</p>
+        </div>
+
+        <div class="value-card">
+            <h3>Global Outlook</h3>
+            <p>International perspectives and exposure.</p>
+        </div>
+
+        <div class="value-card">
+            <h3>Industry Focus</h3>
+            <p>Practice-oriented management learning.</p>
+        </div>
+
+        <div class="value-card">
+            <h3>Social Impact</h3>
+            <p>Responsible leadership and societal contribution.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ADMISSIONS -->
+
+<section id="admissions" class="about">
+
+    <h2>Begin Your Journey With SPJIMR</h2>
+
+    <p>
+        Take the next step towards your management career.
+        Explore programme details, eligibility requirements
+        and admission information through the official website.
+    </p>
+
+    <a href="https://www.spjimr.org/explore-programmes"
+       class="btn">Explore Admissions</a>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact" class="contact">
+
+    <h2>Contact SPJIMR</h2>
+
+    <p><strong>Mumbai Campus</strong></p>
+
+    <p>
+        Bharatiya Vidya Bhavan Campus,<br>
+        Munshi Nagar, Dadabhai Road,<br>
+        Andheri West, Mumbai – 400058
+    </p>
+
+    <p>Email: info@spjimr.org</p>
+
+    <p>Phone: 022 61454200</p>
+
+    <a href="https://www.spjimr.org/" class="btn">
+        Visit Official Website
+    </a>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <h3>SPJIMR</h3>
+
+    <p>
+        S. P. Jain Institute of Management & Research
+    </p>
+
+    <p>
+        Advancing Wise Innovation
+    </p>
+
+    <p>
+        <a href="https://www.spjimr.org/">
+            www.spjimr.org
+        </a>
+    </p>
+
+    <p>
+        © 2026 SPJIMR Website Prototype.
+        All Rights Reserved.
+    </p>
+
+</footer>
+
+<!-- ZESTY CHATBOT POPUP -->
+
+<div id="chatPopup" onclick="openChat()">
+    <strong>Hi, I'm Zesty 👋</strong><br>
+    How can I help you with SPJIMR?
+</div>
+
+<script>
+
+/* SALESFORCE EMBEDDED MESSAGING */
+
+function initEmbeddedMessaging() {
+    try {
+
+        embeddedservice_bootstrap.settings.language = 'en_US';
+
+        embeddedservice_bootstrap.init(
+            '00DBg000002ynd0',
+            'LemonAid_Chat',
+            'https://totallyfoxedsolutionsprivatelimite--ltpreprod.sandbox.my.site.com/ESWLemonAidChat1773823427638',
+            {
+                scrt2URL:
+                'https://totallyfoxedsolutionsprivatelimite--ltpreprod.sandbox.my.salesforce-scrt.com'
+            }
+        );
+
+    } catch (err) {
+        console.error(
+            'Error loading Embedded Messaging:', err
+        );
+    }
+}
+
+/* CHAT POPUP HANDLING */
+
+function handleChatPopup() {
+
+    const popup = document.getElementById("chatPopup");
+
+    const observer = new MutationObserver(() => {
+
+        const btn = document.querySelector(
+            '.embeddedMessagingConversationButton'
+        );
+
+        if (btn && !popup.dataset.init) {
+
+            popup.dataset.init = "true";
+
+            setTimeout(() => {
+                popup.style.display = "block";
+            }, 3000);
+
+            btn.addEventListener("click", () => {
+                popup.style.display = "none";
+            });
+
+            const chatObserver = new MutationObserver(() => {
+
+                const chatIframe = document.querySelector(
+                    'iframe[title*="chat"], iframe[title*="Chat"]'
+                );
+
+                if (chatIframe) {
+                    popup.style.display = "none";
+                }
+
+            });
+
+            chatObserver.observe(document.body, {
+                childList: true,
+                subtree: true
+            });
+
+        }
+
+    });
+
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true
+    });
+
+}
+
+/* OPEN CHAT */
+
+function openChat() {
+
+    const btn = document.querySelector(
+        '.embeddedMessagingConversationButton'
+    );
+
+    if (btn) {
+        btn.click();
+        document.getElementById("chatPopup").style.display = "none";
+    }
+
+}
+
+</script>
+
+<!-- LOAD SALESFORCE SCRIPT -->
+
+<script
+src="https://totallyfoxedsolutionsprivatelimite--ltpreprod.sandbox.my.site.com/ESWLemonAidChat1773823427638/assets/js/bootstrap.min.js"
+onload="initEmbeddedMessaging(); handleChatPopup();">
+</script>
+
+</body>
+</html>
