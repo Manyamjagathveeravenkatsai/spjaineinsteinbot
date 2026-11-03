@@ -582,14 +582,13 @@ function initEmbeddedMessaging() {
         embeddedservice_bootstrap.settings.language = 'en_US';
 
         embeddedservice_bootstrap.init(
-            '00DBg000002ynd0',
-            'LemonAid_Chat',
-            'https://totallyfoxedsolutionsprivatelimite--ltpreprod.sandbox.my.site.com/ESWLemonAidChat1773823427638',
-            {
-                scrt2URL:
-                'https://totallyfoxedsolutionsprivatelimite--ltpreprod.sandbox.my.salesforce-scrt.com'
-            }
-        );
+        '00DFf000003FL7F',
+        'SPJIMR_Web_Support',
+        'https://platform-energy-10--cldscodev.sandbox.my.site.com/ESWSPJIMRWebSupport1784108290202',
+        {
+         scrt2URL: 'https://platform-energy-10--cldscodev.sandbox.my.salesforce-scrt.com'
+        }
+       );
 
     } catch (err) {
         console.error(
@@ -670,8 +669,9 @@ function openChat() {
 <!-- LOAD SALESFORCE SCRIPT -->
 
 <script
-src="https://totallyfoxedsolutionsprivatelimite--ltpreprod.sandbox.my.site.com/ESWLemonAidChat1773823427638/assets/js/bootstrap.min.js"
-onload="initEmbeddedMessaging(); handleChatPopup();">
+ type='text/javascript'
+ src='https://platform-energy-10--cldscodev.sandbox.my.site.com/ESWSPJIMRWebSupport1784108290202/assets/js/bootstrap.min.js'
+ onload='initEmbeddedMessaging()'>
 </script>
 
 </body>
